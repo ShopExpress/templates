@@ -19,7 +19,15 @@
 		{*if $content.available eq 'phone'}<span class="label label-info">Уточняйте наличие</span>{/if*}
 		{*if $content.available eq 'order'}<span class="label label-warning">Под заказ</span>{/if*}
 			</h5>
-
+{if sizeof(﻿$content.size)>0}
+<table class="table">
+   <tbody>
+   {foreach from=﻿$content.size item=item}
+      <tr><td>{$GLOBS.dimensions[$item.key]}</td><td>{$item.value}{$GLOBS.size[$item.edizm]}</td></tr>
+   {/foreach}
+   </tbody>
+</table>
+{/if}
 			{if $content.price}
 			<p class="price-block short">
 				{if $content.minprice}
